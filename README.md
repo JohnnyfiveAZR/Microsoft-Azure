@@ -30,9 +30,12 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Create a batch of additional users and attempt to log into Client-1 with one of the users
 
 <h2>Deployment and Configuration Steps</h2>
+<br />
+<br />
+<h3 align="center">Create Resources in Azure</h3>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Text
@@ -40,7 +43,7 @@ Text
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Text
