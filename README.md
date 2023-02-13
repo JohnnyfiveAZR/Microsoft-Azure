@@ -32,7 +32,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Deployment and Configuration Steps</h2>
 <br />
 <br />
-<h3 align="center">Create Resources in Azure</h3>
+<h3 align="left">Create Resources in Azure</h3>
 
 <p>
 
@@ -56,25 +56,29 @@ Create the Client VM (Windows 10) named |Client|. Use the same Resource Group
 <img src="https://i.imgur.com/OHOVRPi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Text
+Set Domain Controller’s NIC Private IP address static:
 </p>
 <br />
 
 
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/mznqDV5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
-Text
+Verify that both VMs are in the same Vnet(Virtual Network). You can check the topology with Network Watcher or click on either VM followed by Networking> Topology.
 
 
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
-Text
+<img src="https://i.imgur.com/L7CrNBo.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<h3 align="left">Ensure Connectivity between the client and Domain Controller</h3>
 
-Text
+Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t <ip address> (perpetual ping)
 
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+<img src="https://i.imgur.com/eGbvXsz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+Login to the Domain Controller and enable ICMPv4 in on the local windows Firewall
+
+<img src="https://i.imgur.com/gd50U4W.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
 Text
 
