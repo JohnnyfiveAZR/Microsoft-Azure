@@ -48,7 +48,7 @@ Create the Domain Controller VM (Windows Server 2022) named |DC-1|
 <img src="https://i.imgur.com/U4NcVRe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Create the Client VM (Windows 10) named “Client-1”. Use the same Resource Group
+Create the Client VM (Windows 10) named |Client-|. Use the same Resource Group
 </p>
 <br />
 
