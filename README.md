@@ -224,13 +224,13 @@ Create a new OU named “_CLIENTS” and drag Client-1 into there
 <h3 align="left">Create a bunch of additional users and attempt to log into client-1 with one of the users</h3>
 <br />
 <p>
-  Login to DC-1 as jane_admin
+  Login to DC-1 as Johnny_admin
 </p>
 <p>
   Open PowerShell_ise as an administrator.
 </p> 
 <p>  
-  Create a new File and paste the contents of this script into it:
+  Create a new File and paste the contents of this script into it: https://github.com/JohnnyfiveAZR/Active-Directory
  
   
   
