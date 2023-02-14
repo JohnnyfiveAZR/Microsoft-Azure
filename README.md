@@ -63,7 +63,7 @@ Set Domain Controller’s NIC Private IP address static:
 
 <img src="https://i.imgur.com/mznqDV5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
-Verify that both VMs are in the same Vnet(Virtual Network). You can check the topology with Network Watcher or click on either VM followed by Networking> Topology.
+Verify that both VMs are in the same Vnet(Virtual Network). You can check the topology with Network Watcher.
 
 
 
@@ -80,31 +80,65 @@ Login to the Domain Controller and enable ICMPv4 in on the local windows Firewal
 
 <img src="https://i.imgur.com/gd50U4W.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
+Check back at Client-1 to see the ping succeed:
+
+<img src="https://i.imgur.com/gxtMDa4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+<h3 align="left">Installing Active Directory</h3>
+
+
+Login to DC-1 and install Active Directory Domain Services
+
+<img src="https://i.imgur.com/gXWVoHj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+Promote as a Domain Controller:
+
+<img src="https://i.imgur.com/0sT1bwv.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+Promote as a DC: Setup a new forest as mydomain.com (can be anything, just remember what it is)
+
+<img src="https://i.imgur.com/WHH5tBD.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+
+Restart and then log back into DC-1 as user: mydomain.com\labuser
+
+<img src="https://i.imgur.com/LgtNcyL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+
 Text
 
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
+  
 Text
-
+  
+  
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
+  
+  
 Text
-
+  
+  
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
+  
+  
 Text
-
+  
+  
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-
-
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
+  
+  
 Text
-
+  
+  
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-
-
+  
 Text
-
+  
+  
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  
+  
+Text
+  
+  
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
