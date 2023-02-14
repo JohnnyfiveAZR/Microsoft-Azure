@@ -119,14 +119,14 @@ In Active Directory Users and Computers (ADUC), create an Organizational Unit (O
 <img src="https://i.imgur.com/SfIYWad.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   
   
-Create a new employee named “Jane Doe” (same password) with the username of “jane_admin”
+Create a new employee named “Johnny VMan” (same password) with the username of “Johnny_admin”
 
   
   
 <img src="https://i.imgur.com/Lk96BPh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   
   
-Add jane_admin to the “Domain Admins” Security Group
+Add Johnny_admin to the “Domain Admins” Security Group
   
   
 <img src="https://i.imgur.com/LZkhdlu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -148,7 +148,7 @@ Add jane_admin to the “Domain Admins” Security Group
 <img src="https://i.imgur.com/nJaxfP1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   
   
-Log out/close the Remote Desktop connection to DC-1 and log back in as “mydomain.com\jane_admin”
+Log out/close the Remote Desktop connection to DC-1 and log back in as “mydomain.com\Johnny_admin”
 
   
   
@@ -199,7 +199,7 @@ Create a new OU named “_CLIENTS” and drag Client-1 into there
 <h3 align="left">Setup Remote Desktop for non-administrative users on Client-1</h3>
 <br />
 <p>
-  Log into Client-1 as mydomain.com\jane_admin and open system properties.
+  Log into Client-1 as mydomain.com\Johnny_admin and open system properties.
 </p>
 <p>
   Click “Remote Desktop”.
