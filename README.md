@@ -155,7 +155,7 @@ Log out/close the Remote Desktop connection to DC-1 and log back in as “mydoma
 <img src="https://i.imgur.com/6a7ltWe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
   
   
-<h3 align="left">Join Client-1 to your domain (myadproject.com)</h3>
+<h3 align="left">Join Client-1 to your domain (mydomain.com)</h3>
   
 From the Azure Portal, set Client-1’s DNS settings to the DC’s Private IP address
   
