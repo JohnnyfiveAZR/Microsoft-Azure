@@ -330,9 +330,9 @@ attempt to log into Client-1 with one of the accounts (take note of the password
 <br />
 <h3 align="left">Finished!</h3>
   
-I hope this tutorial gives you a bit of insight and better understanding on how to go about setting up an Active Directory (Domain) Lab through your virtual machine environment. Repeat this lab as many times as you please and make this virtual environment your own learning playground and explore the other possibilities in managing user accounts, permissions, passwords, devices, and control access on a large scale. 
+I hope this tutorial gives you a bit of insight and better understanding on how to go about setting up an Active Directory (Domain) Lab through your virtual machine environment. Repeat this lab as many times as you please and make this virtual environment your own learning playground and explore the other possibilities in managing user accounts, permissions, passwords, devices, and control access on a large scale. (This lab can be completed in both Windows and MACos)
 <br />
 <br />
 <br />
-<h3 align="left">Note:</h3> Dont forget to close out your VMs while in RDP by going to CMD> Logoff. Also make sure to CLEAN UP your Microsoft Azure environment and ensure your Resource Groups and Virtual Machines are deleted which may take a few minutes then refresh to confirm.
+<h3 align="left">Note:</h3> Dont forget to close out your Guest VMs while in RDP by going to CMD> Logoff. Also make sure to CLEAN UP your Microsoft Azure environment and ensure your Resource Groups and Virtual Machines are deleted which may take a few minutes then refresh to confirm.
   
