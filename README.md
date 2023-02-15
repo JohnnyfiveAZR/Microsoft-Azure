@@ -32,7 +32,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Deployment and Configuration Steps</h2>
 <br />
 <br />
-<h3 align="left">Create Resources in Azure</h3>
+<h3 align="center">Create Resources in Azure</h3>
 <br />
 <br />
 <p>
@@ -43,7 +43,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <p>
 <br />
 <br />
-Create the Domain Controller VM (Windows Server 2022) named |DC-1|
+ Create the Domain Controller VM (Windows Server 2022) named |DC-1|
 </p>
 <br />
 <br />
@@ -81,12 +81,14 @@ Verify that both VMs are in the same Vnet(Virtual Network). You can check the to
 <br />
 <br />
 
-<h3 align="left">Ensure Connectivity between the client and Domain Controller</h3>
+<h3 align="center">Ensure Connectivity between the client and Domain Controller</h3>
 <br />
 <br />
 Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t <ip address> (perpetual ping)
 <br />
 <br />
+<br />
+  
 
 <img src="https://i.imgur.com/eGbvXsz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
@@ -94,6 +96,9 @@ Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with 
 Login to the Domain Controller and enable ICMPv4 in on the local windows Firewall
 <br />
 <br />
+<br />
+  
+
 <img src="https://i.imgur.com/gd50U4W.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
@@ -104,7 +109,7 @@ Check back at Client-1 to see the ping succeed:
 <br />
 <br />
   
-<h3 align="left">Installing Active Directory</h3>
+<h3 align="center">Installing Active Directory</h3>
 <br />
 <br />
 
@@ -140,7 +145,7 @@ Restart and then log back into DC-1 as user: mydomain.com\labuser
 <br />
 <br />
  
-<h3 align="left">Create an Admin and Normal User Account in AD</h3>
+<h3 align="center">Create an Admin and Normal User Account in AD</h3>
 <br />
 <br />
   
@@ -196,7 +201,7 @@ Log out/close the Remote Desktop connection to DC-1 and log back in as “mydoma
 <br />
 <br />
 
-<h3 align="left">Join Client-1 to your domain (mydomain.com)</h3>
+<h3 align="center">Join Client-1 to your domain (mydomain.com)</h3>
 <br />
 <br />
 
@@ -244,7 +249,7 @@ Create a new OU named “_CLIENTS” and drag Client-1 into there
 <br />
 <br />
   
-<h3 align="left">Setup Remote Desktop for non-administrative users on Client-1</h3>
+<h3 align="center">Setup Remote Desktop for non-administrative users on Client-1</h3>
 <br />
 <br />
 <p>
@@ -269,7 +274,7 @@ Log into Client-1 as mydomain.com\Johnny_admin and open system properties.
 <br />
   
 
-<h3 align="left">Create a bunch of additional users and attempt to log into client-1 with one of the users</h3>
+<h3 align="center">Create a bunch of additional users and attempt to log into client-1 with one of the users</h3>
 <br />
 <p>
   Login to DC-1 as Johnny_admin
@@ -321,7 +326,13 @@ attempt to log into Client-1 with one of the accounts (take note of the password
 <img src="https://i.imgur.com/HcldyWN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
+<br />
+<br />
+<h3 align="left">Finished!</h3>
   
-  
-Text
+I hope this tutorial gives you a bit of insight and better understanding on how to go about setting up an Active Directory (Domain) Lab through your virtual machine environment. Repeat this lab as many times as you please and make this virtual environment your own learning playground and explore the other possibilities in managing user accounts, permissions, passwords, devices, and control access on a large scale. 
+<br />
+<br />
+<br />
+<h3 align="left">Note:</h3> Dont forget to close out your VMs while in RDP by going to CMD> Logoff. Also make sure to CLEAN UP your Microsoft Azure environment and ensure your Resource Groups and Virtual Machines are deleted which may take a few minutes then refresh to confirm.
   
