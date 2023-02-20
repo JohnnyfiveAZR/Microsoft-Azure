@@ -330,7 +330,7 @@ attempt to log into Client-1 with one of the accounts (take note of the password
 <br />
 <h3 align="left">Finished!</h3>
   
-I hope this tutorial gives you a bit of insight and better understanding on how to go about setting up an Active Directory (Domain) Lab through your virtual machine environment. Repeat this lab as many times as you please and make this virtual environment your own learning playground and explore the other possibilities in managing user accounts, permissions, passwords, devices, and control access on a large scale. (This lab can be completed in both Windows and MACos)
+I hope this tutorial gives you a bit of insight and better understanding on how to go about setting up an Active Directory (Domain) Lab through your virtual machine environment. Repeat this lab as many times as you please and make this virtual environment your own learning playground and explore the other possibilities in managing user accounts, permissions, passwords, devices, and control access on a large scale. (This lab can be completed on both Windows and MACos)
 <br />
 <br />
 <br />
