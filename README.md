@@ -32,13 +32,13 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Deployment and Configuration Steps</h2>
 <br />
 <br />
-<h3 align="center">Create Resources in Azure</h3>
+<h1 align="center">Create Resources in Azure</h1>
 <br />
 <br />
 <p>
 
   
-  <img src="https://i.imgur.com/GfT71Ka.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ <img src="https://i.imgur.com/GfT71Ka.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <br />
@@ -81,7 +81,7 @@ Verify that both VMs are in the same Vnet(Virtual Network). You can check the to
 <br />
 <br />
 
-<h3 align="center">Ensure Connectivity between the client and Domain Controller</h3>
+<h1 align="center">Ensure Connectivity between the client and Domain Controller</h1>
 <br />
 <br />
 Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t <ip address> (perpetual ping)
@@ -109,7 +109,7 @@ Check back at Client-1 to see the ping succeed:
 <br />
 <br />
   
-<h3 align="center">Installing Active Directory</h3>
+<h1 align="center">Installing Active Directory</h1>
 <br />
 <br />
 
@@ -145,7 +145,7 @@ Restart and then log back into DC-1 as user: mydomain.com\labuser
 <br />
 <br />
  
-<h3 align="center">Create an Admin and Normal User Account in AD</h3>
+<h1 align="center">Create an Admin and Normal User Account in AD</h1>
 <br />
 <br />
   
@@ -201,7 +201,7 @@ Log out/close the Remote Desktop connection to DC-1 and log back in as “mydoma
 <br />
 <br />
 
-<h3 align="center">Join Client-1 to your domain (mydomain.com)</h3>
+<h1 align="center">Join Client-1 to your domain (mydomain.com)</h1>
 <br />
 <br />
 
@@ -249,7 +249,7 @@ Create a new OU named “_CLIENTS” and drag Client-1 into there
 <br />
 <br />
   
-<h3 align="center">Setup Remote Desktop for non-administrative users on Client-1</h3>
+<h1 align="center">Setup Remote Desktop for non-administrative users on Client-1</h1>
 <br />
 <br />
 <p>
@@ -274,7 +274,7 @@ Log into Client-1 as mydomain.com\Johnny_admin and open system properties.
 <br />
   
 
-<h3 align="center">Create a bunch of additional users and attempt to log into client-1 with one of the users</h3>
+<h1 align="center">Create a bunch of additional users and attempt to log into client-1 with one of the users</h1>
 <br />
 <p>
   Login to DC-1 as Johnny_admin
@@ -328,11 +328,11 @@ attempt to log into Client-1 with one of the accounts (take note of the password
 <br />
 <br />
 <br />
-<h3 align="center">Finished!</h3>
+<h3 align="center">Finished!👍</h3>
   
-I hope this tutorial gives you a bit of insight and better understanding on how to go about setting up an Active Directory (Domain) Lab through your virtual machine environment. Repeat this lab as many times as you please and make this virtual environment your own learning playground and explore the other possibilities in managing user accounts, permissions, passwords, devices, and control access on a large scale. (This lab can be completed on both Windows and MACos)
+I hope this tutorial gives you a clearer and more comfortable starting point for setting up an Active Directory (Domain) Lab in your virtual machine environment. Don’t be afraid to repeat the lab as many times as you need, practice is one of the best ways to build confidence. Think of this virtual environment as your own personal learning playground, where you can safely explore how to manage user accounts, set permissions, reset passwords, connect devices, and control access on a larger scale. Whether you’re working on Windows or macOS, this lab is designed to help you learn by doing at your own pace.
 <br />
 <br />
 <br />
-<h3 align="left">Note:</h3> Dont forget to close out your Guest VMs while in RDP by going to CMD> Logoff. Also make sure to CLEAN UP your Microsoft Azure environment and ensure your Resource Groups and Virtual Machines are deleted which may take a few minutes then refresh to confirm.
+<h3 align="center">Note:</h3> Dont forget to close your Guest Virtual Machine(s) by opening up RDP (Remote Desktop), open CLI (Command Line Interface), then Logoff. Make sure you CLEAN UP your Microsoft Azure environment and ensure your Resource Groups and Virtual Machines are deleted. Refresh to confirm all resources have been deleted, which may take a few minutes.
   
