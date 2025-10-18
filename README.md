@@ -1,338 +1,173 @@
+<!-- Logo -->
 <p align="center">
-<img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
+  <img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo" width="250"/>
 </p>
 
-<h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br/>
-
-
-
-<h2>Environments and Technologies Used</h2>
-
-- Microsoft Azure (Virtual Machines/Compute)
-- Remote Desktop
-- Active Directory Domain Services
-- PowerShell
-
-<h2>Operating Systems Used </h2>
-
-- Windows Server 2022
-- Windows 10 (21H2)
-
-<h2>High-Level Deployment and Configuration Steps</h2>
-
-- Setup Resources in Azure
-- Ensure Connectivity between the Client and Domain Controller
-- Install Active Directory
-- Create an Admin and Normal User Account in AD
-- Join Client-1 to your domain (mydomain.com)
-- Setup Remote Desktop for non-administrative users on Client-1
-- Create a batch of additional users and attempt to log into Client-1 with one of the users
-
-<h2>Deployment and Configuration Steps</h2>
-<br />
-<br />
-<h1 align="center">Create Resources in Azure</h1>
-<br />
-<br />
-<p>
-
-  
- <img src="https://i.imgur.com/GfT71Ka.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<!-- Title -->
+<h1>On-Premises Active Directory Lab in Azure</h1>
+<p style="text-align:center; font-size:1.1em; color:#a0c4ff;">
+  A step-by-step guide to safely deploy an Active Directory Domain on Azure Virtual Machines.
 </p>
-<p>
-<br />
-<br />
- Create the Domain Controller VM (Windows Server 2022) named |DC-1|
-</p>
-<br />
-<br />
-<p>
-<img src="https://i.imgur.com/U4NcVRe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<br />
-<br />
-Create the Client VM (Windows 10) named |Client|. Use the same Resource Group
-</p>
-<br />
-<br />
-<p>
-<img src="https://i.imgur.com/OHOVRPi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<br />
-<br />
-Set Domain Controller’s NIC Private IP address static:
-</p>
-<br />
-<br />
 
-<img src="https://i.imgur.com/mznqDV5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
+<hr style="border-color:#00e0ff;"/>
 
-Verify that both VMs are in the same Vnet(Virtual Network). You can check the topology with Network Watcher.
-<br />
-<br />
-<br />
+<!-- Technologies -->
+<h2>Environments & Technologies</h2>
+<ul>
+  <li>💻 Microsoft Azure (Virtual Machines / Compute)</li>
+  <li>🖥 Remote Desktop</li>
+  <li>🛠 Active Directory Domain Services</li>
+  <li>💻 PowerShell</li>
+</ul>
 
-<img src="https://i.imgur.com/L7CrNBo.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
+<!-- Operating Systems -->
+<h2>Operating Systems</h2>
+<ul>
+  <li>🖥 Windows Server 2022</li>
+  <li>💻 Windows 10 (21H2)</li>
+</ul>
 
-<h1 align="center">Ensure Connectivity between the client and Domain Controller</h1>
-<br />
-<br />
-Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t <ip address> (perpetual ping)
-<br />
-<br />
-<br />
-  
+<!-- High-Level Steps -->
+<h2>High-Level Deployment Steps</h2>
+<ol>
+  <li>✅ Create Azure resources (Domain Controller & Client VMs, Virtual Network)</li>
+  <li>✅ Ensure connectivity between Client-1 and Domain Controller</li>
+  <li>✅ Install Active Directory Domain Services on DC-1</li>
+  <li>✅ Create Admin and standard user accounts in AD</li>
+  <li>✅ Join Client-1 to your domain (<code>mydomain.com</code>)</li>
+  <li>✅ Enable Remote Desktop for non-administrative users</li>
+  <li>✅ Batch-create additional users and verify logins</li>
+</ol>
 
-<img src="https://i.imgur.com/eGbvXsz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Login to the Domain Controller and enable ICMPv4 in on the local windows Firewall
-<br />
-<br />
-<br />
-  
 
-<img src="https://i.imgur.com/gd50U4W.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Check back at Client-1 to see the ping succeed:
-<br />
-<br />
-<img src="https://i.imgur.com/gxtMDa4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<h1 align="center">Installing Active Directory</h1>
-<br />
-<br />
+<hr/>
 
-Login to DC-1 and install Active Directory Domain Services
-<br />
-<br />
+<!-- Step 1 -->
+<details>
+<summary>Create Resources in Azure</summary>
+<p>Create Domain Controller VM (DC-1) and Client VM (Client-1). Ensure they are in the same Resource Group.</p>
+<img src="https://i.imgur.com/GfT71Ka.png" alt="Azure Resource Setup"/>
+<img src="https://i.imgur.com/U4NcVRe.png" alt="Create DC VM"/>
+<img src="https://i.imgur.com/OHOVRPi.png" alt="Create Client VM"/>
+<img src="https://i.imgur.com/mznqDV5.png" alt="Set static IP"/>
+<img src="https://i.imgur.com/L7CrNBo.png" alt="Verify VNet"/>
+</details>
 
-<img src="https://i.imgur.com/gXWVoHj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-Promote as a Domain Controller:
-<br />
-<br />
-  
-<img src="https://i.imgur.com/0sT1bwv.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-Promote as a DC: Setup a new forest as mydomain.com (can be anything, just remember what it is)
-<br />
-<br />
-  
-<img src="https://i.imgur.com/WHH5tBD.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
+<!-- Step 2 -->
+<details>
+<summary>Ensure Connectivity between Client and Domain Controller</summary>
+<p>Login to Client-1 via RDP and ping DC-1:</p>
+<pre>ping -t &lt;DC-1_IP&gt;</pre>
+<p>Enable ICMPv4 on DC firewall. Verify ping is successful.</p>
+<img src="https://i.imgur.com/eGbvXsz.png" alt="Ping from Client"/>
+<img src="https://i.imgur.com/gd50U4W.png" alt="Enable ICMPv4"/>
+<img src="https://i.imgur.com/gxtMDa4.png" alt="Ping succeeds"/>
+</details>
 
-Restart and then log back into DC-1 as user: mydomain.com\labuser
-<br />
-<br />
-  
-<img src="https://i.imgur.com/LgtNcyL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
- 
-<h1 align="center">Create an Admin and Normal User Account in AD</h1>
-<br />
-<br />
-  
-In Active Directory Users and Computers (ADUC), create an Organizational Unit (OU) called “_EMPLOYEES” and "_ADMINS"
-<br />
-<br />
-  
-<img src="https://i.imgur.com/niMqWpd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-   
-<img src="https://i.imgur.com/SfIYWad.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-Create a new employee named “Johnny VMan” (same password) with the username of “Johnny_admin”
-<br />
-<br />
-    
-<img src="https://i.imgur.com/Lk96BPh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-Add Johnny_admin to the “Domain Admins” Security Group
-<br />
-<br />
-  
-<img src="https://i.imgur.com/LZkhdlu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<img src="https://i.imgur.com/DOsaVl3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<img src="https://i.imgur.com/qg0wF3K.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<img src="https://i.imgur.com/A4Qgc4X.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<img src="https://i.imgur.com/nJaxfP1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-Log out/close the Remote Desktop connection to DC-1 and log back in as “mydomain.com\Johnny_admin”
-<br />
-<br />
-  
-<img src="https://i.imgur.com/6a7ltWe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
+<!-- Step 3 -->
+<details>
+<summary>Install Active Directory on DC-1</summary>
+<ol>
+  <li>Install Active Directory Domain Services</li>
+  <li>Promote DC-1 to Domain Controller</li>
+  <li>Create new forest: mydomain.com</li>
+  <li>Restart and log in as mydomain.com\labuser</li>
+</ol>
+<img src="https://i.imgur.com/gXWVoHj.png" alt="Install AD"/>
+<img src="https://i.imgur.com/0sT1bwv.png" alt="Promote DC"/>
+<img src="https://i.imgur.com/WHH5tBD.png" alt="Setup forest"/>
+<img src="https://i.imgur.com/LgtNcyL.png" alt="Login as labuser"/>
+</details>
 
-<h1 align="center">Join Client-1 to your domain (mydomain.com)</h1>
-<br />
-<br />
+<!-- Step 4 -->
+<details>
+<summary>Create Admin and Normal User Accounts in AD</summary>
+<ol>
+  <li>Create OUs: _EMPLOYEES and _ADMINS</li>
+  <li>Create user Johnny VMan → Johnny_admin</li>
+  <li>Add Johnny_admin to Domain Admins</li>
+  <li>Log out and back in as Johnny_admin</li>
+</ol>
+<img src="https://i.imgur.com/niMqWpd.png" alt="Create OUs"/>
+<img src="https://i.imgur.com/SfIYWad.png" alt="ADUC interface"/>
+<img src="https://i.imgur.com/Lk96BPh.png" alt="Create Admin user"/>
+<img src="https://i.imgur.com/LZkhdlu.png" alt="Add to Domain Admins"/>
+<img src="https://i.imgur.com/DOsaVl3.png" alt="Confirm Admin group"/>
+<img src="https://i.imgur.com/qg0wF3K.png" alt="Check user"/>
+<img src="https://i.imgur.com/A4Qgc4X.png" alt="Verify user"/>
+<img src="https://i.imgur.com/nJaxfP1.png" alt="Final verification"/>
+<img src="https://i.imgur.com/6a7ltWe.png" alt="Login as Johnny_admin"/>
+</details>
 
-From the Azure Portal, set Client-1’s DNS settings to the DC’s Private IP address
-<br />
-<br />
+<!-- Step 5 -->
+<details>
+<summary>Join Client-1 to Domain</summary>
+<ol>
+  <li>Set Client DNS to DC private IP</li>
+  <li>Restart Client-1</li>
+  <li>Join domain via local admin</li>
+  <li>Verify Client-1 in ADUC → Computers</li>
+  <li>Move Client-1 to _CLIENTS OU</li>
+</ol>
+<img src="https://i.imgur.com/KZ7ZBsZ.png" alt="Set Client DNS"/>
+<img src="https://i.imgur.com/WNRBYvs.png" alt="Join domain"/>
+<img src="https://i.imgur.com/PeEBULu.png" alt="Domain joined"/>
+<img src="https://i.imgur.com/xSr4Jyy.png" alt="Verify domain"/>
+<img src="https://i.imgur.com/jhvlR4m.png" alt="Check Client"/>
+<img src="https://i.imgur.com/GE7fJZC.png" alt="Move Client to OU"/>
+</details>
 
-<img src="https://i.imgur.com/KZ7ZBsZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-From the Azure Portal, restart Client-1
-<br />
-<br />
-  
-Login to Client-1 (Remote Desktop) as the original local admin (labuser) and join it to the domain |computer will restart|
-<br />
-<br />
-  
-<img src="https://i.imgur.com/WNRBYvs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<img src="https://i.imgur.com/PeEBULu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<img src="https://i.imgur.com/xSr4Jyy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<img src="https://i.imgur.com/jhvlR4m.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-Login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the “Computers” container on the root of the domain
-<br />
-<br />
+<!-- Step 6 -->
+<details>
+<summary>Enable Remote Desktop for Non-Admins</summary>
+<ol>
+  <li>Login as Johnny_admin on Client-1</li>
+  <li>System Properties → Remote Desktop → Allow domain users</li>
+  <li>Non-admin users can now log in via RDP</li>
+</ol>
+<img src="https://i.imgur.com/oeTMvYh.png" alt="Enable Remote Desktop"/>
+</details>
 
-Create a new OU named “_CLIENTS” and drag Client-1 into there
-<br />
-<br />
-  
-<img src="https://i.imgur.com/GE7fJZC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<h1 align="center">Setup Remote Desktop for non-administrative users on Client-1</h1>
-<br />
-<br />
-<p>
-Log into Client-1 as mydomain.com\Johnny_admin and open system properties.
-</p>
-<p>
-  Click “Remote Desktop”.
-</p>
-<p>
-  Allow “domain users” access to remote desktop.
-</p>
-<p>
-  You can now log into Client-1 as a normal, non-administrative user now.
-</p>
-<p>
-  Normally you’d want to do this with Group Policy that allows you to change MANY systems at once (maybe a future lab)
-<br />
-<br />
+<!-- Step 7 -->
+<details>
+<summary>Create Additional Users via Script</summary>
+<ol>
+  <li>Login to DC-1 as Johnny_admin</li>
+  <li>Open PowerShell ISE as Admin</li>
+  <li>Paste and run script: <a href="https://github.com/JohnnyfiveAZR/Active-Directory">GitHub Script</a></li>
+  <li>Verify users in ADUC and test login</li>
+</ol>
+<img src="https://i.imgur.com/Iic8jTH.png" alt="Open PowerShell ISE"/>
+<img src="https://i.imgur.com/nkKJwDx.png" alt="Create Script"/>
+<img src="https://i.imgur.com/5ppkwmC.png" alt="Run Script"/>
+<img src="https://i.imgur.com/5a95s0z.png" alt="Verify created users"/>
+<img src="https://i.imgur.com/Mm0IEFI.png" alt="Login test"/>
+<img src="https://i.imgur.com/QMm3pbC.png" alt="Confirm user accounts"/>
+<img src="https://i.imgur.com/HcldyWN.png" alt="Final check"/>
+</details>
 
-<img src="https://i.imgur.com/oeTMvYh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
+<hr/>
 
-<h1 align="center">Create a bunch of additional users and attempt to log into client-1 with one of the users</h1>
-<br />
-<p>
-  Login to DC-1 as Johnny_admin
-</p>
-<p>
-  Open PowerShell_ise as an administrator.
-</p> 
-<p>  
-  Create a new File and paste the contents of this script into it: https://github.com/JohnnyfiveAZR/Active-Directory
-<br />
-<br />
-  
-<img src="https://i.imgur.com/Iic8jTH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-  
-<img src="https://i.imgur.com/nkKJwDx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-  
-<img src="https://i.imgur.com/5ppkwmC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
+<h2>🎯 Lab Complete</h2>
+<p>Congratulations! Your AD Lab is ready. Use it to explore user management, permissions, password resets, device connections, and advanced AD features.</p>
 
-Run the script and observe the accounts being created
-<br />
-<br />
-  
-  
-<img src="https://i.imgur.com/5a95s0z.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-When finished, open ADUC and observe the accounts in the appropriate OU
-attempt to log into Client-1 with one of the accounts (take note of the password in the script)
-<br />
-<br />
+<h2>🧹 Cleanup & Best Practices</h2>
+<ul>
+  <li>Close all Guest VMs</li>
+  <li>Log off via RDP or CLI</li>
+  <li>Delete Azure Resource Groups & VMs</li>
+  <li>Refresh portal to confirm all resources removed</li>
+</ul>
 
-<img src="https://i.imgur.com/Mm0IEFI.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<img src="https://i.imgur.com/QMm3pbC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-  
-<img src="https://i.imgur.com/HcldyWN.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<br />
-<br />
-<h3 align="center">Finished!👍</h3>
-  
-I hope this tutorial gives you a clearer and more comfortable starting point for setting up an Active Directory (Domain) Lab in your virtual machine environment. Don’t be afraid to repeat the lab as many times as you need, practice is one of the best ways to build confidence. Think of this virtual environment as your own personal learning playground, where you can safely explore how to manage user accounts, set permissions, reset passwords, connect devices, and control access on a larger scale. Whether you’re working on Windows or macOS, this lab is designed to help you learn by doing at your own pace.
-<br />
-<br />
-<br />
-<h3 align="center">Note:</h3> Dont forget to close your Guest Virtual Machine(s) by opening up RDP (Remote Desktop), open CLI (Command Line Interface), then Logoff. Make sure you CLEAN UP your Microsoft Azure environment and ensure your Resource Groups and Virtual Machines are deleted. Refresh to confirm all resources have been deleted, which may take a few minutes.
-  
+<h2>🌟 Next Steps</h2>
+<ul>
+  <li>Automate AD tasks with PowerShell</li>
+  <li>Apply Group Policy across multiple clients</li>
+  <li>Explore replication, trusts, and OU delegation</li>
+  <li>Expand to hybrid AD with Azure AD</li>
+</ul>
+
+<p align="center" style="font-weight:bold; font-size:1.2em;">Keep experimenting, and happy learning! 🚀</p>
+
+</body>
+</html>
